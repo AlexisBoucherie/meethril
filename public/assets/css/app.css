@@ -1,0 +1,13 @@
+@import "_navbar.css";
+
+root {
+    --bg-body: #DCDCDC;
+    --main-text: #333333;
+    --elements: #E00000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
