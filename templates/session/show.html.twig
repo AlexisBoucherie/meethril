@@ -1,58 +1,57 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Session{% endblock %}
+{% block title %}{{ session.name }}{% endblock %}
 
 {% block body %}
-    <h1>Session</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ session.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ session.name }}</td>
-            </tr>
-            <tr>
-                <th>Place</th>
-                <td>{{ session.place }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ session.date ? session.date|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ session.type }}</td>
-            </tr>
-            <tr>
-                <th>MaxPlayerNb</th>
-                <td>{{ session.maxPlayerNb }}</td>
-            </tr>
-            <tr>
-                <th>CurrentPlayerNb</th>
-                <td>{{ session.currentPlayerNb }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ session.description }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ session.createdAt ? session.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ session.updatedAt ? session.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_session_index') }}">back to list</a>
-
-    <a href="{{ path('app_session_edit', {'id': session.id}) }}">edit</a>
-
-    {{ include('session/_delete_form.html.twig') }}
+    <div class="container d-flex justify-content-center">
+        <div class="row">
+            <h1 class="text-center m-3">{{ session.name }}</h1>
+            <div class="col-12 col-md-8 col-lg-6 rounded bg-light custom-shadow p-3 mx-auto">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="{{ session.image }}"
+                         alt="Image de la partie"
+                         style="width:10rem;height: 10rem">
+                    <h5>Maître de jeu :</h5>
+                    <p>Master Darek</p>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <i class="bi bi-geo-alt-fill"></i>
+                            Lieu : {{ session.place }}</li>
+                        <li>
+                            <i class="bi bi-calendar-check-fill"></i>
+                            Date : {{ session.date|date('Y-m-d H:i') }}</li>
+                        <li>
+                            <i class="bi bi-hourglass-split"></i>
+                            Type : {{ session.type }}</li>
+                    </ul>
+                    <h5>Description :</h5>
+                    <p>{{ session.description }}</p>
+                </div>
+                <div>
+                    <h5>Joueurs :</h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                    <ul>
+                        <li>Aragorn</li>
+                        <li>Legolas</li>
+                        <li>Gandalf</li>
+                    </ul>
+                        <span class="me-4">
+                            {{ session.currentPlayerNb }} / {{ session.maxPlayerNb }}
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center m-2">
+                    <a class="btn btn-danger" href="#">
+                        Rejoindre la partie
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
+{# <a href="{{ path('app_home') }}">back to list</a> #}
+{# <a href="{{ path('app_session_edit', {'id': session.id}) }}">edit</a> #}
+{# {{ include('session/_delete_form.html.twig') }} #}

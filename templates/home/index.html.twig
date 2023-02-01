@@ -4,17 +4,16 @@
 
 {% block body %}
     <div class="container mt-3">
-        <h1>Toutes les parties</h1>
+        <h1 class="text-center m-3">Toutes les parties</h1>
         <div class="row">
             {% for session in sessions %}
-                <div class="card col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
+                <div class="card col-12 col-md-6 col-lg-4 mb-2 mb-md-0 custom-shadow">
                     <div class="card-body pb-0">
                         <h5 class="card-title text-center">{{ session.name }}</h5>
                     </div>
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-evenly">
-                            <img class=""
-                                 src="{{ session.image }}"
+                            <img src="{{ session.image }}"
                                  alt="Image de la partie"
                                  style="width:6rem;height: 6rem">
                             <ul>
@@ -29,7 +28,7 @@
                                     Type : {{ session.type }}</li>
                                 <li>
                                     <i class="bi bi-people-fill"></i>
-                                    Joueur : <span>{{ session.currentPlayerNb }} / {{ session.maxPlayerNb }}</span></li>
+                                    Joueurs : <span>{{ session.currentPlayerNb }} / {{ session.maxPlayerNb }}</span></li>
                             </ul>
                         </div>
                     </div>

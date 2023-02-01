@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Session;
 use App\Form\SessionType;
 use App\Repository\SessionRepository;
+use App\Repository\UserSessionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
