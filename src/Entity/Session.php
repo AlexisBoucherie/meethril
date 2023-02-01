@@ -46,6 +46,9 @@ class Session
     #[ORM\OneToMany(mappedBy: 'sessionId', targetEntity: UserSession::class)]
     private Collection $userSessions;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
+
     public function __construct()
     {
         $this->userSessions = new ArrayCollection();
@@ -190,6 +193,18 @@ class Session
                 $userSession->setSessionId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

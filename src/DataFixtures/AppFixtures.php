@@ -86,6 +86,7 @@ class AppFixtures extends Fixture
             $session->setMaxPlayerNb($faker->numberBetween(3, 5));
             $session->setCurrentPlayerNb(0);
             $session->setDescription($faker->paragraph($faker->numberBetween(1, 3)));
+            $session->setImage('https://cdn-icons-png.flaticon.com/512/2619/2619285.png');
             $session->setCreatedAt($faker->dateTimeBetween('-1 month'));
             $manager->persist($session);
             $sessions[] = $session;

@@ -1,6 +1,6 @@
-@import "_navbar.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 
-root {
+:root {
     --bg-body: #DCDCDC;
     --main-text: #333333;
     --elements: #E00000;
@@ -10,4 +10,18 @@ root {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    background-color: var(--bg-body);
+}
+
+.btn-danger, .btn-outline-danger:hover {
+    background-color: var(--elements);
+}
+
+.btn-outline-danger {
+    border: 1px solid var(--elements);
+    color: var(--elements);
 }
