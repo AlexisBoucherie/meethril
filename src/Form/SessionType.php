@@ -17,10 +17,7 @@ class SessionType extends AbstractType
             ->add('date')
             ->add('type')
             ->add('maxPlayerNb')
-            ->add('currentPlayerNb')
             ->add('description')
-            ->add('createdAt')
-            ->add('updatedAt')
         ;
     }
 

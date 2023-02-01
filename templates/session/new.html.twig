@@ -3,9 +3,8 @@
 {% block title %}Créer une partie{% endblock %}
 
 {% block body %}
-    <h1>Proposer une partie</h1>
-
-    {{ include('session/_form.html.twig') }}
-
-    <a href="{{ path('app_home') }}">back to list</a>
+    <h1 class="text-center m-3">Proposer une partie</h1>
+    <div class="container">
+        {{ include('session/_form.html.twig') }}
+    </div>
 {% endblock %}
