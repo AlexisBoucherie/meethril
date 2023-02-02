@@ -12,14 +12,9 @@ class UserSessionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('userIsOwner')
             ->add('pcName')
             ->add('pcRace')
             ->add('pcClass')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('userId')
-            ->add('sessionId')
         ;
     }
 

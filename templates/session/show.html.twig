@@ -63,7 +63,8 @@
                         </div>
                     {% else %}
                         <div class="d-flex justify-content-around m-3">
-                            <a class="btn btn-danger" href="#">
+                            <a class="btn btn-danger"
+                               href="{{ path('app_user_session_join', {'session': session.id}) }}">
                                 Rejoindre la partie
                             </a>
                             <a class="btn btn-outline-secondary" href="{{ path('app_home') }}">
