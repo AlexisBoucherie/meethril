@@ -41,7 +41,7 @@
                             <h5>Joueurs :</h5>
                             <span class="me-4 text-nowrap">
                             {{ session.currentPlayerNb }} / {{ session.maxPlayerNb }}
-                        </span>
+                            </span>
                         </div>
                         <div>
                             <ul>
@@ -63,10 +63,21 @@
                         </div>
                     {% else %}
                         <div class="d-flex justify-content-around m-3">
-                            <a class="btn btn-danger"
-                               href="{{ path('app_user_session_join', {'session': session.id}) }}">
-                                Rejoindre la partie
-                            </a>
+                            {% if app.user in users_in_session %}
+                                <a class="btn btn-outline-danger"
+                                   href="#">
+                                    Quitter la partie
+                                </a>
+                            {% else %}
+                                {% if session.currentPlayerNb < session.maxPlayerNb %}
+                                    <a class="btn btn-danger"
+                                       href="{{ path('app_user_session_join', {'session': session.id}) }}">
+                                        Rejoindre la partie
+                                    </a>
+                                {% else %}
+                                    <p class="text-secondary">Désolé, la session est complète !</p>
+                                {% endif %}
+                            {% endif %}
                             <a class="btn btn-outline-secondary" href="{{ path('app_home') }}">
                                 Revenir à l'accueil
                             </a>
