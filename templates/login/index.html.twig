@@ -13,6 +13,9 @@
             <form action="{{ path('app_login') }}"
                   method="post"
                   class="col-12 col-md-10 col-lg-8 bg-light mx-auto custom-shadow rounded">
+                <div class="m-3 d-flex justify-content-center">
+                    <img src="{{ asset('assets/img/Meethril logo.png') }}" alt="Logo Meethril" width="250" height="100">
+                </div>
                 <div class="m-3">
                     <label for="username">Adresse email :</label>
                     <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control">
