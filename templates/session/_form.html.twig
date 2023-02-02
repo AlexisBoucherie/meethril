@@ -21,6 +21,10 @@
         {{ form_widget(form.maxPlayerNb, {'attr': {'class': 'form-control mb-3'}}) }}
     </div>
     <div class="col-12 col-md-10 col-lg-8">
+        {{ form_label(form.image) }}
+        {{ form_widget(form.image, {'attr': {'class': 'form-control mb-3'}}) }}
+    </div>
+    <div class="col-12 col-md-10 col-lg-8">
         {{ form_label(form.description) }}
         {{ form_widget(form.description, {'attr': {'class': 'form-control mb-3'}}) }}
     </div>

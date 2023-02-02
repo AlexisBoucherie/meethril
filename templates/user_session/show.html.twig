@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UserSession{% endblock %}
+
+{% block body %}
+    <h1>UserSession</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user_session.id }}</td>
+            </tr>
+            <tr>
+                <th>UserIsOwner</th>
+                <td>{{ user_session.userIsOwner ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>PcName</th>
+                <td>{{ user_session.pcName }}</td>
+            </tr>
+            <tr>
+                <th>PcRace</th>
+                <td>{{ user_session.pcRace }}</td>
+            </tr>
+            <tr>
+                <th>PcClass</th>
+                <td>{{ user_session.pcClass }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ user_session.createdAt ? user_session.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ user_session.updatedAt ? user_session.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_session_index') }}">back to list</a>
+
+    <a href="{{ path('app_user_session_edit', {'id': user_session.id}) }}">edit</a>
+
+    {{ include('user_session/_delete_form.html.twig') }}
+{% endblock %}

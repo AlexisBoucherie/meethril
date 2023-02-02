@@ -4,7 +4,15 @@
 
 {% block body %}
     <h1 class="text-center m-3">Proposer une partie</h1>
+    {% if app.user %}
     <div class="container">
         {{ include('session/_form.html.twig') }}
     </div>
+    {% else %}
+    <div class="container">
+        <p class="text-center text-warning">
+            Vous devez être connecté pour pouvoir proposer une nouvelle session de jeu.
+        </p>
+    </div>
+    {% endif %}
 {% endblock %}
