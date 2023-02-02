@@ -65,10 +65,18 @@ class SessionController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_session_show', methods: ['GET'])]
-    public function show(Session $session): Response
+    public function show(Session $session, UserSessionRepository $userSessionRepository): Response
     {
+        $userSessions = $userSessionRepository->findBySession($session);
+        $usersInSession = [];
+        foreach($userSessions as $userSession) {
+            $usersInSession[] = $userSession->getUserId();
+        }
+
         return $this->render('session/show.html.twig', [
             'session' => $session,
+            'user_sessions' => $userSessions,
+            'users_in_session' => $usersInSession,
         ]);
     }
 

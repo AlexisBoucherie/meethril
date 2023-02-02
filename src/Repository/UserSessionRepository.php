@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Session;
 use App\Entity\UserSession;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -37,5 +38,20 @@ class UserSessionRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    /**
+     * Get all entities from User_Session join table, where sessionId is equal to Session
+     *
+     * @param Session $session
+     * @return float|int|mixed|string
+     */
+    public function findBySession(Session $session)
+    {
+        return $this->createQueryBuilder('us')
+            ->where('us.sessionId = :session')
+            ->setParameter('session', $session)
+            ->getQuery()
+            ->getResult();
     }
 }
