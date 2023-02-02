@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Session;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,12 +16,20 @@ class SessionType extends AbstractType
         $builder
             ->add('name')
             ->add('place')
-            ->add('date')
-            ->add('type')
+            ->add('date', DateType::class, [
+                'widget' => 'single_text',
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker'],
+            ])
+            ->add('type', ChoiceType::class, [
+                'choices' => [
+                    'One-Shot' => 'One-Shot',
+                    'Campagne' => 'Campagne',
+                ]
+            ])
             ->add('image')
             ->add('maxPlayerNb')
-            ->add('description')
-        ;
+            ->add('description');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
