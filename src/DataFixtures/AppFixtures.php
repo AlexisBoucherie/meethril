@@ -63,7 +63,7 @@ class AppFixtures extends Fixture
             $user->setAge($faker->numberBetween(18, 42));
             $user->setCity($city[$faker->numberBetween(0, 4)]);
             $user->setBiography($faker->paragraph($faker->numberBetween(1, 3)));
-            $user->setPlaysSince('20'. rand(15, 23));
+            $user->setPlaysSince('20' . rand(15, 23));
             $user->setPlayerOrDM($playerOrDm[$faker->numberBetween(0, 2)]);
             $user->setGames($games[$faker->numberBetween(0, 7)]);
             $user->setCreatedAt($faker->dateTimeBetween('-3 month'));
@@ -77,6 +77,13 @@ class AppFixtures extends Fixture
             $name = ['D&D v5', 'INS-MV v4', 'Star Wars D20'];
             $place = ['Bordeaux', 'Toulouse', 'En ligne'];
             $type = ['One-Shot', 'Campagne'];
+            $image = [
+                'https://images.ctfassets.net/swt2dsco9mfe/2jKQC6i2BM1HNQIzau3Biv/01bee47c8170a7d7f3f54f79777c4f3e/158867_670x370.jpg',
+                'https://is5-ssl.mzstatic.com/image/thumb/Purple113/v4/96/a9/a7/96a9a723-0d41-b970-4257-ff0a160746ac/AppIcon-0-1x_U007emarketing-0-0-0-7-0-0-85-220.png/256x256bb.jpg',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJHTHRJ8xuoFqkwmzz8Qf7DkI9lmyn2WSHVw&usqp=CAU',
+                'https://is5-ssl.mzstatic.com/image/thumb/Purple112/v4/c8/ae/27/c8ae27d8-a67e-d840-e097-86d993cb9b3a/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.jpg',
+                'https://images.ctfassets.net/swt2dsco9mfe/sG9OBgz3121mNJx9xFLkI/d4f07f919f46c7a87b38e3cca35e7773/670x370-essentials.jpg?w=365&h=196&fit=thumb',
+            ];
 
             $session = new Session();
             $session->setName($name[$faker->numberBetween(0, 2)]);
@@ -85,8 +92,8 @@ class AppFixtures extends Fixture
             $session->setType($type[$faker->numberBetween(0, 1)]);
             $session->setMaxPlayerNb($faker->numberBetween(3, 5));
             $session->setCurrentPlayerNb(0);
-            $session->setDescription($faker->paragraph($faker->numberBetween(1, 3)));
-            $session->setImage('https://cdn-icons-png.flaticon.com/512/2619/2619285.png');
+            $session->setDescription($faker->paragraph($faker->numberBetween(2, 3)));
+            $session->setImage($image[$i]);
             $session->setCreatedAt($faker->dateTimeBetween('-1 month'));
             $manager->persist($session);
             $sessions[] = $session;
@@ -101,6 +108,6 @@ class AppFixtures extends Fixture
             $userSession->setUserIsOwner(true);
             $manager->persist($userSession);
         }
-            $manager->flush();
+        $manager->flush();
     }
 }
