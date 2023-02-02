@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Session;
+use DateTime;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,10 +18,13 @@ class SessionType extends AbstractType
         $builder
             ->add('name')
             ->add('place')
-            ->add('date', DateType::class, [
-                'widget' => 'single_text',
-                'html5' => false,
-                'attr' => ['class' => 'js-datepicker'],
+            ->add('date', DateTimeType::class, [
+                "minutes" => [
+                    '00',
+                    '15',
+                    '30',
+                    '45'
+                ]
             ])
             ->add('type', ChoiceType::class, [
                 'choices' => [
