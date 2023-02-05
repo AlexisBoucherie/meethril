@@ -10,4 +10,4 @@ There are two main possibilities for a user:
 - As a DM, I can create a new session, manage its details (where, when...) and accept new players.
 - As a player, I can go through the list of all available sessions, look at their details and ask to join one.
 
-* As you read this, this is still a WIP that I hope to finish as soon as I can.
+> As you read this, this is still a WIP that I hope to finish as soon as I can.
