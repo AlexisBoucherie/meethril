@@ -1,6 +1,6 @@
 # meethril
 
-Meethril is a 15h solo challenge realized during my studentship at WilsCodeSchool, Bordeaux.
+Meethril is a 15h solo challenge realized during my studentship at WildCodeSchool, Bordeaux.
 
 We were given carte blanche for the topic we'd work on, as long as we realized our app with Symfony.
 
